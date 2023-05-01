@@ -8,7 +8,7 @@ messages = [{"role": "system", "content": f"You're {choice}"}]
 
 while True:
     content = input("User: ")
-    if content.lower() == "goodbye":
+    if "goodbye" in content.lower(): 
         messages.append({"role": "user", "content": content})
         completion = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
         chat_response = completion.choices[0].message.content
